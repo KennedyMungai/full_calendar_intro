@@ -6,7 +6,9 @@
 	],
 	"settings": {
 		"cSpell.words": [
-			"fullcalendar"
+			"daygrid",
+			"fullcalendar",
+			"timegrid"
 		]
 	}
 }
