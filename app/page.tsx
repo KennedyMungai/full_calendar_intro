@@ -24,6 +24,11 @@ export default function Home() {
 		{ title: 'event 5', id: '5' }
 	])
 
+	const [allEvents, setAllEvents] = useState<IEvent[]>([])
+	const [showModal, setShowModal] = useState<boolean>(false)
+	const [showDeleteModal, setShowDeleteModal] = useState<boolean>()
+	const [idToDelete, setIdToDelete] = useState<number | null>(null)
+
 	return (
 		<>
 			<nav className='flex justify-between mb-12 border-b border-violet-100 p-4'>
