@@ -148,7 +148,9 @@ export default function Home() {
 							leave={'ease-in duration-200'}
 							leaveFrom={'opacity-100'}
 							leaveTo={'opacity-0'}
-						></Transition.Child>
+						>
+              <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+            </Transition.Child>
 					</Dialog>
 				</Transition.Root>
 			</main>
