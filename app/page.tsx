@@ -1,7 +1,8 @@
-import Image from 'next/image'
-
 export default function Home() {
-  return (
-    <main className="min-h-screen bg-stone-500"></main>
-  )
+	return (
+		<>
+			<nav className='flex justify-between mb-12 border-b border-violet-100 p-4'></nav>
+			<main className='flex h-full flex-col items-center justify-between p-24'></main>
+		</>
+	)
 }
