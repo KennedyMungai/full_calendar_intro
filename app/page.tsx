@@ -96,16 +96,16 @@ export default function Home() {
 	}
 
 	function handleCloseModal() {
-    setShowModal(false)
-    setNewEvent({
-      title: '',
-      start: '',
-      allDay: false,
-      id: 0
-    })
-    setShowDeleteModal(false)
-    setIdToDelete(null)
-  }
+		setShowModal(false)
+		setNewEvent({
+			title: '',
+			start: '',
+			allDay: false,
+			id: 0
+		})
+		setShowDeleteModal(false)
+		setIdToDelete(null)
+	}
 
 	return (
 		<>
