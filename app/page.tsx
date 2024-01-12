@@ -15,7 +15,6 @@ interface IEvent {
 	id: number
 }
 
-
 export default function Home() {
 	const [events, setEvents] = useState([
 		{ title: 'event 1', id: '1' },
@@ -53,9 +52,16 @@ export default function Home() {
 		}
 	}, [])
 
-  const handleDateClick = () => {
-    console.log("Date Clicked")
-  }
+	function handleDateClick(arg: { date: Date; allDay: boolean }) {
+		setNewEvent({
+			...newEvent,
+			start: arg.date,
+			allDay: arg.allDay,
+			id: new Date().getTime()
+		})
+
+		setShowModal(true)
+	}
 
 	return (
 		<>
