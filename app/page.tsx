@@ -6,7 +6,7 @@ import interactionPlugin, {
 	DropArg
 } from '@fullcalendar/interaction'
 import timeGridPlugin from '@fullcalendar/timegrid'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface IEvent {
 	title: string
@@ -14,6 +14,7 @@ interface IEvent {
 	allDay: boolean
 	id: number
 }
+
 
 export default function Home() {
 	const [events, setEvents] = useState([
@@ -28,12 +29,33 @@ export default function Home() {
 	const [showModal, setShowModal] = useState<boolean>(false)
 	const [showDeleteModal, setShowDeleteModal] = useState<boolean>()
 	const [idToDelete, setIdToDelete] = useState<number | null>(null)
-  const [newEvent, setNewEvent] = useState<IEvent | null>({
-    title: '',
-    startTime: '',
-    allDay: false,
-    id: 0
-  })
+	const [newEvent, setNewEvent] = useState<IEvent | null>({
+		title: '',
+		startTime: '',
+		allDay: false,
+		id: 0
+	})
+
+	useEffect(() => {
+		let draggableEl = document.getElementById('draggable-el')
+
+		if (draggableEl) {
+			new Draggable(draggableEl, {
+				itemSelector: '.fc-event',
+				eventData: function (eventEl) {
+					let title = eventEl.getAttribute('title')
+					let id = eventEl.getAttribute('data')
+					let start = eventEl.getAttribute('start')
+
+					return { title, id, start }
+				}
+			})
+		}
+	}, [])
+
+  const handleDateClick = () => {
+    console.log("Date Clicked")
+  }
 
 	return (
 		<>
@@ -54,13 +76,13 @@ export default function Home() {
 								center: 'title',
 								right: 'resourceTimeLineWeek, dayGridMonth, timeGridWeek'
 							}}
-							events={{}}
+							events={allEvents}
 							nowIndicator={true}
 							editable={true}
 							droppable={true}
 							selectable={true}
 							selectMirror={true}
-							// dateClick={{}}
+							dateClick={handleDateClick}
 							// drop={}
 							// eventClick={}
 						/>
