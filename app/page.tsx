@@ -27,6 +27,15 @@ export default function Home() {
 								center: 'title',
 								right: 'resourceTimeLineWeek, dayGridMonth, timeGridWeek'
 							}}
+							events={{}}
+							nowIndicator={true}
+							editable={true}
+							droppable={true}
+							selectable={true}
+							selectMirror={true}
+              dateClick={{}}
+              drop={}
+              eventClick={}
 						/>
 					</div>
 				</div>
