@@ -6,8 +6,9 @@ import interactionPlugin, {
 	DropArg
 } from '@fullcalendar/interaction'
 import timeGridPlugin from '@fullcalendar/timegrid'
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import moment from 'moment'
+import { Dialog, Transition } from '@headlessui/react'
 
 interface IEvent {
 	title: string
@@ -75,6 +76,8 @@ export default function Home() {
 			id: new Date().getTime()
 		}
 
+		console.log('DATA', data)
+
 		setAllEvents([...allEvents, event])
 	}
 
@@ -131,6 +134,23 @@ export default function Home() {
 						))}
 					</div>
 				</div>
+				<Transition.Root show={showDeleteModal} as={Fragment}>
+					<Dialog
+						as={'div'}
+						className='relative z-10'
+						onClose={setShowDeleteModal}
+					>
+						<Transition.Child
+							as={Fragment}
+							enter={'ease-out duration-300'}
+							enterFrom={'opacity-0'}
+							enterTo={'opacity-100'}
+							leave={'ease-in duration-200'}
+							leaveFrom={'opacity-100'}
+							leaveTo={'opacity-0'}
+						></Transition.Child>
+					</Dialog>
+				</Transition.Root>
 			</main>
 		</>
 	)
