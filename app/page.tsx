@@ -7,6 +7,7 @@ import interactionPlugin, {
 } from '@fullcalendar/interaction'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import { useEffect, useState } from 'react'
+import moment from 'moment'
 
 interface IEvent {
 	title: string
@@ -59,6 +60,8 @@ export default function Home() {
 			allDay: arg.allDay,
 			id: new Date().getTime()
 		})
+
+    console.log(moment(arg.date).format('DD/MM/YYYY'))
 
 		setShowModal(true)
 	}
