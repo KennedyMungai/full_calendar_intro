@@ -28,6 +28,12 @@ export default function Home() {
 	const [showModal, setShowModal] = useState<boolean>(false)
 	const [showDeleteModal, setShowDeleteModal] = useState<boolean>()
 	const [idToDelete, setIdToDelete] = useState<number | null>(null)
+  const [newEvent, setNewEvent] = useState<IEvent | null>({
+    title: '',
+    startTime: '',
+    allDay: false,
+    id: 0
+  })
 
 	return (
 		<>
