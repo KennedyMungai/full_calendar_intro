@@ -155,11 +155,11 @@ export default function Home() {
 						))}
 					</div>
 				</div>
-				<Transition.Root show={showDeleteModal} as={Fragment}>
+				<Transition.Root show={showModal} as={Fragment}>
 					<Dialog
 						as={'div'}
 						className='relative z-10'
-						onClose={setShowDeleteModal}
+						onClose={setShowModal}
 					>
 						<Transition.Child
 							as={Fragment}
